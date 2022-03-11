@@ -10,9 +10,13 @@ class FirstGame(Game):
 
         while True:
             try:
-                input_num = int(input("Введи число: "))
+                input_num: int = int(input("Введи число: "))
+                assert 0 < input_num < 11
             except ValueError:
-                print("-->  Неверное значение, попробуй снова  -->")
+                print("--> Неверное значение, попробуй снова  -->")
+                continue
+            except AssertionError:
+                print("Число вне диапазона, попробуй снова")
                 continue
 
             if self.result(random_num, input_num):
@@ -20,7 +24,7 @@ class FirstGame(Game):
 
     def result(self, input_num, random_num):
         if input_num == random_num:
-            print(f"-->  Правильно! Ответ: {random_num}")
+            print(f"--> Правильно! Ответ: {random_num}")
             return True
 
         elif input_num > random_num:

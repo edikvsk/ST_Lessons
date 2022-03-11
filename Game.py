@@ -8,6 +8,5 @@ class Game:
         self.get_random_num: int = int(randint(self.LOWER_NUM, self.HIGHER_NUM))
         self.start_game()
 
-
     def __del__(self):
         print('--> Победа!')

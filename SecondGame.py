@@ -1,5 +1,7 @@
 from random import randint
+
 from Game import Game
+
 
 class SecondGame(Game):
 
@@ -18,6 +20,7 @@ class SecondGame(Game):
     def result(self, user_answer):
         if user_answer == '=':
             return True
+
         elif user_answer == '>':
             self.LOWER_NUM = int(self.get_random_num) + 1
             self.get_random_num = randint(self.LOWER_NUM, self.HIGHER_NUM)
