@@ -18,22 +18,27 @@ class SecondGame(Game):
         print("Компьютер угадал загаданное пользователем число")
 
     def result(self, user_answer):
-        if user_answer == '=':
-            return True
+        while True:
+            try:
+                if user_answer == '=':
+                    return True
 
-        elif user_answer == '>':
-            self.LOWER_NUM = int(self.get_random_num) + 1
-            self.get_random_num = randint(self.LOWER_NUM, self.HIGHER_NUM)
-            return False
+                elif user_answer == '>':
+                    self.LOWER_NUM = int(self.get_random_num) + 1
+                    self.get_random_num = randint(self.LOWER_NUM, self.HIGHER_NUM)
+                    return False
 
-        elif user_answer == '<':
-            self.HIGHER_NUM = (self.get_random_num) - 1
-            self.get_random_num = randint(self.LOWER_NUM, self.HIGHER_NUM)
-            return False
+                elif user_answer == '<':
+                    self.HIGHER_NUM = (self.get_random_num) - 1
+                    self.get_random_num = randint(self.LOWER_NUM, self.HIGHER_NUM)
+                    return False
 
-        else:
-            print("--> Неверное значение, попробуй снова -->")
-            return False
+                else:
+                    print("--> Неверное значение, попробуй снова -->")
+                    return False
+            except ValueError:
+                print("--> Выход из диапазона чисел, попробуй снова -->")
+                break
 
 
 SecondGame()
